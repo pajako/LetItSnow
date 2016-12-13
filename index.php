@@ -3,23 +3,6 @@
 <head>
 	<meta charset="utf-8" />
 
-
-	<!-- USE FOR DEBUGING
-	<link rel="stylesheet/less" href="/less/router.less" />
-	<script>
-		less = {
-			env: "development",
-			async: true,
-			fileAsync: false,
-			poll: 1000,
-			functions: {},
-			dumpLineNumbers: "comments",
-			relativeUrls: false
-		};
-	</script>
-	<script src="/js/less.min.js" type="text/javascript"></script>
-	 -->
-	
 	<?php
 
 	error_reporting(E_ALL);
@@ -45,8 +28,10 @@
 	?>
 
 	<link rel="stylesheet" href="/css/<?php echo $css_file_name; ?>" />
+	<script src="/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<script src="/js/effects.js" type="text/javascript" async></script>
 
-	<title>Let It Snow!</title>
+	<title>Foreveryone PF 2017</title>
 </head>
 
 <body>
@@ -62,9 +47,27 @@
 		<div class="snow_back second"></div>
 	</div>
 	<!-- DO NOT COPY STUFF AFTER THIS TO YOUT SITE, UNLESS YOU LIKE COMIC SANS -->
-	<h1>
-		LET IT SNOOOOW
-	</h1>
+
+	<div class="snowball">
+		<div class="ball"></div>
+
+	</div>
+
+	<div class="forrest">
+		<div class="close"></div>
+		<div class="front"></div>
+		<div class="mid">
+			<div class="sled">
+				<div class="hitbox">
+					
+				</div>
+			</div>
+		</div>
+		<div class="far"></div>
+	</div>
+	<div class="logo">
+		<img src="/img/logo_feo.png" alt="Foreveryone" />
+	</div>
 </body>
 </html>
 <!-- THIS IS ACTUALLY END OF HTML CODE, WHAT ARE YOU LOOKING AT?! -->

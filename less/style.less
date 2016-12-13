@@ -7,12 +7,24 @@
 
 // BASIC BODY STYLE
 // you dont need to use this
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 html,
 body {
 	height: 100%;
+	padding: 0;
+	margin: 0;
 }
 
 body {
+	overflow: hidden;
+	transform: translateZ(0);
+	
 	// I KNOW, THIS SHOULD BE IN MIXIN, BUT I WONT USE IT ANYWHERE ELSE, I PROMISE
 	& when (@snow_ms_prefixes = true){
 		display: -ms-flexbox;
@@ -62,19 +74,234 @@ body {
 	}
 	align-items: center;
 
-	background: #c4dbe8;
-	font-family: "Comic Sans MS", sans-serif;
+	position: relative;
+	padding-bottom: 20%;
+	background: rgb(154,195,213);
 
-	h1 {
-		width: 100%;
-		text-align: center;
-		font-size: 60px;
-		color: #4e7489;	
+	& when (@snow_webkit_prefixes = true){
+		background: -webkit-linear-gradient(top,rgba(154,195,213,1) 0%,rgba(127,190,220,1) 100%);
+	}
+
+	& when (@snow_moz_prefixes = true){
+		background: -moz-linear-gradient(top,rgba(154,195,213,1) 0%,rgba(127,190,220,1) 100%);
+	}
+
+	background: linear-gradient(to bottom,rgba(154,195,213,1) 0%,rgba(127,190,220,1) 100%);
+	background-size: cover;
+	font-family: sans-serif;
+	user-select: none;
+	cursor: pointer;
+}
+
+
+//
+// FOREVERYONE LOGO
+//
+.logo {
+	width: 100%;
+	text-align: center;
+	
+	img {
+		position: relative;
+		display: block;
+		margin: 0 auto;
+		width: 250px;
+		max-height: 200px;
+		z-index: 40;
+
+		@media (min-width:600px){
+			width: 400px;
+		}
+
+		@media (min-width:1200px){
+			width: 600px;
+		}
 	}
 }
 
-// THE STUFF YOU'RE LOOKING FOR BEGINS HERE
-// ----------------- DOWN HERE --------------------
+
+//
+// FORREST
+//
+
+@keyframes sled_moving {
+	0% {
+		left: 120%;
+		bottom: 17%;
+	}
+
+	100% {
+		left: -25%;
+		bottom: 8%;
+	}
+}
+
+.forrest {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+
+	// SLED
+	.sled {
+		position: absolute;
+		left: -20%;
+		bottom: 8%;
+
+		/*left: 50%;
+		bottom: 20%;*/
+		width: 300px;
+		height: 100px;
+		background: url(/img/sled.png) no-repeat center;
+		background-size: contain;
+		z-index: 25;
+		animation: sled_moving 10s ease-out 1;
+		animation-fill-mode: forwards;
+		animation-delay: 2s;
+		transform:rotate(-5deg);
+		user-select: none;
+		
+
+		// overlay 
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: "";
+			z-index: 27;
+			background: url(/img/sled_overlay.png) no-repeat center;
+			background-size: contain;
+			pointer-events: none;
+		}
+
+		.hitbox {
+			position: absolute;
+			top: -65px;
+			left: 130px;
+			width: 100px;
+			height: 120px;
+			user-select: none;
+			background: url(/img/demo.png) center bottom no-repeat;
+			background-size: contain;
+			z-index: 26;
+
+			&.rekt:before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				content: "";
+				background: url(/img/rekt.png) center no-repeat;
+				background-size: contain;
+				pointer-events: none;
+			}
+		}
+	}
+
+	// LAYERS
+	.close {
+		position: absolute;
+		top: -100px;
+		left: -100px;
+		right: -100px;
+		bottom: -100px;
+		z-index: 40;
+		background: url(/img/forrest_close.png) center bottom no-repeat;
+		background-size: contain;
+		pointer-events: none;
+	}
+
+	.front {
+		position: absolute;
+		top: -50px;
+		left: -50px;
+		right: -50px;
+		bottom: -50px;
+		z-index: 30;
+		background: url(/img/forrest_front.png) center bottom no-repeat;
+		background-size: contain;
+		pointer-events: none;
+	}
+
+	.mid {
+		position: absolute;
+		top: -50px;
+		left: -50px;
+		right: -50px;
+		bottom: -50px;
+		z-index: 20;
+		background: url(/img/forrest_mid.png) center bottom no-repeat;
+		background-size: contain;
+		filter: blur(0.5px);
+	}
+
+	.far {
+		position: absolute;
+		top: -50px;
+		left: -50px;
+		right: -50px;
+		bottom: -50px;
+		z-index: 10;
+		background: url(/img/forrest_far.png) center bottom no-repeat;
+		background-size: contain;
+		filter: blur(1px);
+	}
+}
+
+
+//
+// SNOWBALL
+//
+
+@keyframes throw_ball {
+	0% {
+		top: 100%;
+		left: 50%;
+		opacity: 0;
+		zoom: 200%;
+		filter: blur(5px);
+	}
+
+	20% {
+		opacity: 1;
+		left: 50%;
+	}
+
+	100% {
+		top: 0;
+		opacity: 1;
+		zoom: 20%;
+		left: 50%;
+		filter: blur(0px);
+	}
+}
+
+.snowball {
+	position: absolute;
+	width: 1px;
+	height: 400px;
+	pointer-events: none;
+
+	.ball {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		margin-left: -25px;
+		background: url(/img/snowball.png) center no-repeat;
+		background-size: contain;
+		opacity: 0;
+		z-index: 300;
+	}
+
+	&.throw .ball {
+		animation: throw_ball 100ms ease-in 1;
+	}
+}
 
 
 //
@@ -349,6 +576,8 @@ body {
 		pointer-events: none;
 		user-select: none;
 		background: url(@snow_flake_front_image);
+		opacity: 0;
+		z-index: @snow_flake_front_z-index;
 
 		& when (@snow_webkit_prefixes = true){
 			-webkit-animation: snowfall_front @snow_flake_front_timing infinite @snow_flake_front_easing;
@@ -367,8 +596,6 @@ body {
 		}
 
 		animation: snowfall_front @snow_flake_front_timing infinite @snow_flake_front_easing;
-		opacity: 0;
-		z-index: 100;
 
 		&.second {
 			& when (@snow_webkit_prefixes = true){
@@ -388,7 +615,7 @@ body {
 			}
 
 			animation: snowfall_front_second @snow_flake_front_timing infinite @snow_flake_front_easing;
-			z-index: 100;
+			z-index: @snow_flake_front_z-index;
 		}
 	}
 
@@ -401,6 +628,8 @@ body {
 		pointer-events: none;
 		user-select: none;
 		background: url(@snow_flake_mid_image);
+		opacity: 0;
+		z-index: @snow_flake_mid_z-index;
 
 		& when (@snow_webkit_prefixes = true){
 			-webkit-animation: snowfall_mid @snow_flake_mid_timing infinite @snow_flake_mid_easing;
@@ -419,8 +648,6 @@ body {
 		}
 
 		animation: snowfall_mid @snow_flake_mid_timing infinite @snow_flake_mid_easing;
-		opacity: 0;
-		z-index: 100;
 
 		&.second {
 			& when (@snow_webkit_prefixes = true){
@@ -440,7 +667,7 @@ body {
 			}
 			
 			animation: snowfall_mid_second @snow_flake_mid_timing infinite @snow_flake_mid_easing;
-			z-index: 100;
+			z-index: @snow_flake_mid_z-index;
 		}
 	}
 
@@ -453,6 +680,8 @@ body {
 		pointer-events: none;
 		user-select: none;
 		background: url(@snow_flake_back_image);
+		opacity: 0;
+		z-index: @snow_flake_back_z-index;
 
 		& when (@snow_webkit_prefixes = true){
 			-webkit-animation: snowfall_back @snow_flake_back_timing infinite @snow_flake_back_easing;
@@ -471,8 +700,6 @@ body {
 		}
 
 		animation: snowfall_back @snow_flake_back_timing infinite @snow_flake_back_easing;
-		opacity: 0;
-		z-index: 100;
 
 		&.second {
 			& when (@snow_webkit_prefixes = true){
@@ -492,7 +719,7 @@ body {
 			}
 			
 			animation: snowfall_back_second @snow_flake_back_timing infinite @snow_flake_back_easing;
-			z-index: 100;
+			z-index: @snow_flake_back_z-index;
 		}
 	}
 }
