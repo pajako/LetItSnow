@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 
 
-		window.setTimeout(function(e){
+		window.setTimeout(function(){
 
 		
 
@@ -79,7 +79,7 @@ $(document).ready(function(){
 	$(".sled .hitbox").click(function(){
 		$(this).addClass("rekt");
 	});
-
+/*
 	var currentMousePos = { x: -1, y: -1 };
 	$(document).mousemove(function(event) {
 		window.setTimeout(function(e){
@@ -99,5 +99,6 @@ $(document).ready(function(){
 			$(".snowball").removeClass("throw");
 		}, 150);
 	});
+	*/
 
 });
