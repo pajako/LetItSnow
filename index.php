@@ -54,16 +54,16 @@
 	</div>
 
 	<div class="forrest">
-		<div class="close"></div>
-		<div class="front"></div>
-		<div class="mid">
+		<div class="close" id="forrest_close"></div>
+		<div class="front" id="forrest_front"></div>
+		<div class="mid" id="forrest_mid">
 			<div class="sled">
 				<div class="hitbox">
 					
 				</div>
 			</div>
 		</div>
-		<div class="far"></div>
+		<div class="far" id="forrest_far"></div>
 	</div>
 	<div class="logo">
 		<img src="/img/logo_feo.png" alt="Foreveryone" />

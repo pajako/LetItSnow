@@ -1,72 +1,78 @@
 
 
 $(document).ready(function(){
-	$("body").mousemove(function (event) {
-		var body_top  = $("body").offset().top;
-		var body_left = $("body").offset().left;
+	var mouse_x = $("body").width() / 2;
+	var mouse_y = $("body").height() / 2;
+
+	$(document).mousemove(function (event) {
 
 
-		var mouse_x = body_left + $("body").width() / 2;
-		var mouse_y = body_top + $("body").height() / 2;
 
-		// TODO: OPTIMIZE THIS CODE
+		window.setTimeout(function(e){
+
+		
 
 
-		// CLOSE OFFSET
-		var offset_close_x  = (event.pageX - mouse_x) / 100 + "%";
-		var offset_close_x2 = (event.pageX - mouse_x) / 100 * -1 + "%";
-		var offset_close_y  = (event.pageY - mouse_y) / 100 + "%";
-		var offset_close_y2 = (event.pageY - mouse_y) / 100 * -1 + "%";
+			var offset_x_right  = event.pageX - mouse_x;
+			var offset_x_left = offset_x_right * -1;
+			var offset_y_bottom  = event.pageY - mouse_y;
+			var offset_y_top = offset_y_bottom * -1;
 
-		//console.log("X: "+offset_front_x+" Y:"+offset_front_y);
-		//console.log("X: "+offset_front_x2+" Y:"+offset_front_y2);
 
-		$(".forrest .close").css("margin-top",		offset_close_y);
-		$(".forrest .close").css("margin-bottom",	offset_close_y2);
-		$(".forrest .close").css("margin-left",		offset_close_x);
-		$(".forrest .close").css("margin-right",	offset_close_x2);
+			// CLOSE
+			var offset_x_close_left  = offset_x_left / 200;
+			var offset_x_close_right = offset_x_right / 200;
+			var offset_y_close_top  = offset_y_top / 100;
+			var offset_y_close_bottom = offset_y_bottom / 100;
 
-		// FRONT OFFSET
-		var offset_front_x  = (event.pageX - mouse_x) / 300 + "%";
-		var offset_front_x2 = (event.pageX - mouse_x) / 300 * -1 + "%";
-		var offset_front_y  = (event.pageY - mouse_y) / 300 + "%";
-		var offset_front_y2 = (event.pageY - mouse_y) / 300 * -1 + "%";
+			$("#forrest_close").css({
+				"margin-top"   : offset_y_close_top+"%",
+				"margin-bottom": offset_y_close_bottom+"%",
+				"margin-left"  : offset_x_close_left+"%",
+				"margin-right" : offset_x_close_right+"%",
+			});
 
-		//console.log("X: "+offset_front_x+" Y:"+offset_front_y);
-		//console.log("X: "+offset_front_x2+" Y:"+offset_front_y2);
+			// FRONT
+			var offset_x_front_left  = offset_x_left / 400;
+			var offset_x_front_right = offset_x_right / 400;
+			var offset_y_front_top  = offset_y_top / 300;
+			var offset_y_front_bottom = offset_y_bottom / 300;
 
-		$(".forrest .front").css("margin-top",	offset_front_y);
-		$(".forrest .front").css("margin-bottom",	offset_front_y2);
-		$(".forrest .front").css("margin-left",		offset_front_x);
-		$(".forrest .front").css("margin-right",	offset_front_x2);
+			$("#forrest_front").css({
+				"margin-top"   : offset_x_front_left+"%",
+				"margin-bottom": offset_y_front_bottom+"%",
+				"margin-left"  : offset_x_front_left+"%",
+				"margin-right" : offset_x_front_right+"%",
+			});
 
-		// MID OFFSET
-		var offset_mid_x  = (event.pageX - mouse_x) / 600 + "%";
-		var offset_mid_x2 = (event.pageX - mouse_x) / 600 * -1 + "%";
-		var offset_mid_y  = (event.pageY - mouse_y) / 600 + "%";
-		var offset_mid_y2 = (event.pageY - mouse_y) / 600 * -1 + "%";
 
-		//console.log("X: "+offset_front_x+" Y:"+offset_front_y);
-		//console.log("X: "+offset_front_x2+" Y:"+offset_front_y2);
+			// MID
+			var offset_x_mid_left  = offset_x_left / 600;
+			var offset_x_mid_right = offset_x_right / 600;
+			var offset_y_mid_top  = offset_y_top / 500;
+			var offset_y_mid_bottom = offset_y_bottom / 500;
 
-		$(".forrest .mid").css("margin-top",	offset_mid_y);
-		$(".forrest .mid").css("margin-bottom",	offset_mid_y2);
-		$(".forrest .mid").css("margin-left",	offset_mid_x);
-		$(".forrest .mid").css("margin-right",	offset_mid_x2);
+			$("#forrest_mid").css({
+				"margin-top"   : offset_x_mid_left+"%",
+				"margin-bottom": offset_y_mid_bottom+"%",
+				"margin-left"  : offset_x_mid_left+"%",
+				"margin-right" : offset_x_mid_right+"%",
+			});
 
-		// FAR OFFSET
-		var offset_far_x  = (event.pageX - mouse_x) / 600 + "%";
-		var offset_far_x2 = (event.pageX - mouse_x) / 600 * -1 + "%";
-		var offset_far_y  = (event.pageY - mouse_y) / 600 + "%";
-		var offset_far_y2 = (event.pageY - mouse_y) / 600 * -1 + "%";
+			// FAR
+			var offset_x_far_left  = offset_x_left / 800;
+			var offset_x_far_right = offset_x_right / 800;
+			var offset_y_far_top  = offset_y_top / 700;
+			var offset_y_far_bottom = offset_y_bottom / 700;
 
-		//console.log("X: "+offset_front_x+" Y:"+offset_front_y);
-		//console.log("X: "+offset_front_x2+" Y:"+offset_front_y2);
+			$("#forrest_far").css({
+				"margin-top"   : offset_x_far_left+"%",
+				"margin-bottom": offset_y_far_bottom+"%",
+				"margin-left"  : offset_x_far_left+"%",
+				"margin-right" : offset_x_far_right+"%",
+			});
+		}, 50);
 
-		$(".forrest .far").css("margin-top",	offset_far_y);
-		$(".forrest .far").css("margin-bottom",	offset_far_y2);
-		$(".forrest .far").css("margin-left",	offset_far_x);
-		$(".forrest .far").css("margin-right",	offset_far_x2);
     });
 
 	// SLED DETECT HIT
@@ -74,22 +80,18 @@ $(document).ready(function(){
 		$(this).addClass("rekt");
 	});
 
-	// THROWING SNOWBALL
-	// CREDIT: //stackoverflow.com/questions/3385936/jquery-follow-the-cursor-with-a-div
-	var $mouseX = 0, $mouseY = 0;
-	var $xp = 0, $yp =0;
+	var currentMousePos = { x: -1, y: -1 };
+	$(document).mousemove(function(event) {
+		window.setTimeout(function(e){
+			currentMousePos.x = event.pageX;
+			currentMousePos.y = event.pageY;
 
-	$(document).mousemove(function(e){
-		$mouseX = e.pageX;
-		$mouseY = e.pageY;    
-		
-	});
-
-	var $loop = setInterval(function(){
-		$xp += (($mouseX - $xp)/12);
-		$yp += (($mouseY - $yp)/12);
-		$(".snowball").css({left:$xp +'px', top:$yp +'px'});
-	}, 2);
+			$(".snowball").css({
+				"top":currentMousePos.y,
+				"left":currentMousePos.x
+			})
+		}, 50);
+    });
 
 	$("body").click(function(){
 		$(".snowball").addClass("throw");

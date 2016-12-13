@@ -127,12 +127,12 @@ body {
 @keyframes sled_moving {
 	0% {
 		left: 120%;
-		bottom: 17%;
+		bottom: 18%;
 	}
 
 	100% {
 		left: -25%;
-		bottom: 8%;
+		bottom: 13%;
 	}
 }
 
@@ -143,12 +143,18 @@ body {
 	right: 0;
 	bottom: 0;
 	overflow: hidden;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
 
 	// SLED
 	.sled {
 		position: absolute;
 		left: -20%;
 		bottom: 8%;
+		transform: rotateZ(0);
 
 		/*left: 50%;
 		bottom: 20%;*/
@@ -162,6 +168,12 @@ body {
 		animation-delay: 2s;
 		transform:rotate(-5deg);
 		user-select: none;
+
+		-webkit-transform: translateZ(0);
+		-moz-transform: translateZ(0);
+		-ms-transform: translateZ(0);
+		-o-transform: translateZ(0);
+		transform: translateZ(0);
 		
 
 		// overlay 
@@ -286,6 +298,7 @@ body {
 	width: 1px;
 	height: 400px;
 	pointer-events: none;
+	border: 1px solid red;
 
 	.ball {
 		position: absolute;
