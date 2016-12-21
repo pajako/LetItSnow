@@ -31,6 +31,8 @@
 	<script src="/js/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script src="/js/effects.js" type="text/javascript" async></script>
 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<title>Foreveryone PF 2017</title>
 </head>
 
@@ -47,26 +49,33 @@
 		<div class="snow_back second"></div>
 	</div>
 	<!-- DO NOT COPY STUFF AFTER THIS TO YOUT SITE, UNLESS YOU LIKE COMIC SANS -->
-
+	<!--
 	<div class="snowball">
 		<div class="ball"></div>
 
 	</div>
-
+	-->
 	<div class="forrest">
-		<div class="close" id="forrest_close"></div>
-		<div class="front" id="forrest_front"></div>
-		<div class="mid" id="forrest_mid">
-			<div class="sled">
-				<div class="hitbox">
-					
-				</div>
-			</div>
+		<div class="close" id="forrest_close">
+	
 		</div>
-		<div class="far" id="forrest_far"></div>
+		<div class="front" id="forrest_front">
+			
+		</div>
+		<div class="mid" id="forrest_mid">
+	
+		</div>
+		<div class="far" id="forrest_far">
+		
+		</div>
 	</div>
 	<div class="logo">
-		<img src="/img/logo_feo.png" alt="Foreveryone" />
+		<h1>Veselé Vánoce a štastný Nový rok přeje</h1>
+		<div class="inside">
+			<img src="/img/logo_feo.png" alt="Foreveryone" />
+			<div class="ice"></div>
+		</div>
+		
 	</div>
 </body>
 </html>
