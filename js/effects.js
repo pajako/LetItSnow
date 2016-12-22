@@ -3,9 +3,6 @@
 $(document).ready(function(){
 
 	function calculate_movement(timestamp,event){
-
-
-		//console.log(event);
 		var mouse_x = $("body").width() / 2;
 		var mouse_y = $("body").height() / 2;
 
@@ -13,7 +10,6 @@ $(document).ready(function(){
 		var offset_x_left = offset_x_right * -1;
 		var offset_y_bottom  = event.pageY - mouse_y;
 		var offset_y_top = offset_y_bottom * -1;
-
 
 		// CLOSE
 		var offset_x_close_left  = offset_x_left / 250;
@@ -41,7 +37,6 @@ $(document).ready(function(){
 			"margin-right" : offset_x_front_right.toFixed(3)+"%"
 		});
 
-
 		// MID
 		var offset_x_mid_left  = offset_x_left / 600;
 		var offset_x_mid_right = offset_x_right / 600;
@@ -68,20 +63,17 @@ $(document).ready(function(){
 			"margin-right" : offset_x_far_right.toFixed(3)+"%"
 		});
 	}
-	
 
 	$(document).mousemove(function (event) {
 		requestAnimationFrame(function(timestamp) {
 			calculate_movement(timestamp,event);
 		});
 	});
-	
 
 	// LOGO DETECT HIT
 	$(".logo .inside img").click(function(){
 		$(this).siblings(".ice").addClass("hit");
 	});
-
 
 
 	// SNOWBALL MOVING
@@ -108,6 +100,4 @@ $(document).ready(function(){
 			$(".snowball").removeClass("throw");
 		}, 400);
 	});*/
-	
-
 });
