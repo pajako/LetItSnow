@@ -4,13 +4,14 @@
 	<!-- GET SOURCE CODE ON GITHUB: https://github.com/wUFr/LetItSnow -->
 	<meta charset="utf-8" />
 	<?php
-	$dir = $_SERVER["DOCUMENT_ROOT"];
-	$less_files = "/less/router.less";
-	$config = array("cache_dir" => $dir . "/css","compress" => true,"source_map" => false,);
-	include_once($dir . "/lessphp/Autoloader.php");Less_Autoloader::register();
-	$less_files = $dir . $less_files;$less_files = array($less_files => "/");$css_file_name = Less_Cache::Get($less_files, $config);
+        $dir = __DIR__;
+        $less_files = "/../less/router.less";
+        $config = array("cache_dir" => $dir . "/../cache","compress" => true,"source_map" => false,);
+        include_once($dir . "/../lessphp/Autoloader.php");Less_Autoloader::register();
+        $less_files = $dir . $less_files;$less_files = array($less_files => "/");$css_file_name = Less_Cache::Get($less_files, $config);        $time =
+        rename($dir . "/../cache/" . $css_file_name, $dir . "/css/style.css")
 	?>
-	<link rel="stylesheet" href="/css/<?php echo $css_file_name; ?>" />
+	<link rel="stylesheet" href="/css/style.css?t=<?php echo time(); ?>" />
 	<script src="/js/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script src="/js/effects.min.js" type="text/javascript" async></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">

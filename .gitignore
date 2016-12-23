@@ -1,3 +1,4 @@
-/css/*.css
-/css/*.lesscache
-/css/*.list
+/web/css/*.css
+/web/css/*.lesscache
+/web/css/*.list
+/.idea/
