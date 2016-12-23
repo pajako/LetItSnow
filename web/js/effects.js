@@ -71,7 +71,7 @@ $(document).ready(function(){
 	});
 
 	// LOGO DETECT HIT
-	$(".logo .inside img").click(function(){
+	$(".logo .inside a").click(function(){
 		$(this).siblings(".ice").addClass("hit");
 	});
 

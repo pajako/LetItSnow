@@ -36,7 +36,7 @@
 	<div class="logo">
 		<h1>Veselé Vánoce a štastný Nový rok přeje</h1>
 		<div class="inside">
-			<img src="/img/logo_feo.png" alt="Foreveryone" />
+			<a href="https://www.foreveryone.cz"><img src="/img/logo_feo.png" alt="Foreveryone" /></a>
 			<div class="ice"></div>
 		</div>	
 	</div>
